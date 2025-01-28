@@ -72,7 +72,7 @@ LuaLine.setup({
 			{ "lsp_progress", display_components = { "lsp_client_name", { "percentage" } } },
 		},
 		lualine_y = { "progress" },
-		lualine_z = { "location" },
+		lualine_z = { "location", "selectioncount" },
 	},
 	inactive_sections = {
 		lualine_a = {},
