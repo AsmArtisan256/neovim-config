@@ -2,8 +2,8 @@
 vim.opt.background = "dark"
 
 require("catppuccin").setup({
-	-- flavour = "mocha", -- latte, frappe, macchiato, mocha
-	flavour = vim.g.neovide and "latte" or "mocha",
+	flavour = "mocha", -- latte, frappe, macchiato, mocha
+	-- flavour = vim.g.neovide and "latte" or "mocha",
 	background = { -- :h background
 		light = "latte",
 		dark = "mocha",

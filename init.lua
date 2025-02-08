@@ -79,7 +79,7 @@ Plug("hrsh7th/cmp-path")
 Plug("hrsh7th/nvim-cmp")
 
 -- blink cmp
-Plug("saghen/blink.cmp", { branch = "v0.9.2" })
+Plug("saghen/blink.cmp", { branch = "v0.11.0" })
 
 -- dart lsp
 Plug("akinsho/flutter-tools.nvim")
@@ -103,8 +103,8 @@ Plug("folke/which-key.nvim")
 -- session manager
 Plug("rmagatti/auto-session")
 
--- choosewin
-Plug("t9md/vim-choosewin")
+-- window pick
+Plug("yorickpeterse/nvim-window")
 
 -- show indentation
 Plug("echasnovski/mini.indentscope")
@@ -146,7 +146,8 @@ require("initializer")
 
 if vim.g.neovide then
 	-- vim.o.guifont = "Iosevka_NFM_SemiBold:h16"
-	vim.o.guifont = "Iosevka_Comfy:h16"
+	-- vim.o.guifont = "Iosevka_Comfy:h16"
+	vim.o.guifont = "Iosevka NFM SemiBold:h16"
 	vim.o.linespace = 0
 	vim.g.neovide_scale_factor = 1.2
 
