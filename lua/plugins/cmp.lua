@@ -234,7 +234,7 @@
 
 local Blink = require("blink.cmp")
 Blink.setup({
-	keymap = { preset = "super-tab" },
+	keymap = { preset = "enter" },
 
 	appearance = {
 		-- Sets the fallback highlight groups to nvim-cmp's highlight groups
@@ -249,16 +249,9 @@ Blink.setup({
 	completion = {
 		list = {
 			selection = {
-				preselect = function(ctx)
-					return not require("blink.cmp").snippet_active({ direction = 1 })
-				end,
+				preselect = false,
 				auto_insert = true,
 			},
-		},
-
-		-- use on super-tab config
-		trigger = {
-			show_in_snippet = false,
 		},
 
 		menu = {
