@@ -79,7 +79,7 @@ Plug("hrsh7th/cmp-path")
 Plug("hrsh7th/nvim-cmp")
 
 -- blink cmp
-Plug("saghen/blink.cmp", { branch = "v0.11.0" })
+Plug("saghen/blink.cmp", { branch = "v0.12.0" })
 
 -- dart lsp
 Plug("akinsho/flutter-tools.nvim")
