@@ -55,7 +55,6 @@ Plug("kyazdani42/nvim-tree.lua")
 -- treesitter
 Plug("nvim-treesitter/nvim-treesitter", { ["do"] = ":TSUpdate" })
 Plug("nvim-treesitter/playground")
-Plug("nvim-treesitter/nvim-treesitter-context")
 
 -- treesitter tags auto-pair
 Plug("windwp/nvim-ts-autotag")

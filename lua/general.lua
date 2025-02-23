@@ -178,11 +178,12 @@ vim.opt.virtualedit = "onemore"
 vim.opt.diffopt = vim.opt.diffopt + "foldcolumn:0"
 
 -- fold settings - requires treesitter!
-vim.opt.foldmethod = "expr"
-vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
-vim.opt.foldlevelstart = 99
-vim.opt.foldnestmax = 10
-vim.foldenable = false
+-- NOTE: this fucks up performance BADLY when opening big files
+-- vim.opt.foldmethod = "expr"
+-- vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+-- vim.opt.foldlevelstart = 99
+-- vim.opt.foldnestmax = 10
+-- vim.foldenable = false
 
 -- disable some builtin stuff
 local disabled_built_ins = {
