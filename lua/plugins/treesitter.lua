@@ -31,20 +31,29 @@ TreeSitter.setup({
 		enable = true,
 		additional_vim_regex_highlighting = true,
 		disable = function(_, bufnr)
-			-- NOTE: disable ultimate-autopair to improve performance
-			require("ultimate-autopair").disable()
-
-			local max_filesize = 100 * 1024 -- 100 KB
-			return vim.fn.getfsize(vim.api.nvim_buf_get_name(bufnr)) > max_filesize
+			local max_filesize = 1024 * 1024 -- 100 KB
+			local disable = vim.fn.getfsize(vim.api.nvim_buf_get_name(bufnr)) > max_filesize
+			if disable then
+				-- NOTE: disable ultimate-autopair to improve performance
+				require("ultimate-autopair").disable()
+				return true
+			else
+				return false
+			end
 		end,
 	},
 	autopairs = {
 		enable = true,
 		disable = function(_, bufnr)
-			-- TODO: this one isn't triggering at all??
-			require("ultimate-autopair").disable()
-			local max_filesize = 100 * 1024 -- 100 KB
-			return vim.fn.getfsize(vim.api.nvim_buf_get_name(bufnr)) > max_filesize
+			local max_filesize = 1024 * 1024 -- 100 KB
+			local disable = vim.fn.getfsize(vim.api.nvim_buf_get_name(bufnr)) > max_filesize
+			if disable then
+				-- NOTE: disable ultimate-autopair to improve performance
+				require("ultimate-autopair").disable()
+				return true
+			else
+				return false
+			end
 		end,
 	},
 	incremental_selection = {
