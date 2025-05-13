@@ -106,7 +106,7 @@ local on_attach = function(client, bufnr)
 	vim.api.nvim_set_keymap("n", "gd", "<cmd>lua Show_line_diagnostics()<CR>", opts)
 
 	local methods = vim.lsp.protocol.Methods
-	if client.supports_method(methods.textDocument_inlayHint) then
+	if client:supports_method(methods.textDocument_inlayHint) then
 		vim.keymap.set("n", "<F10>", function()
 			local is_enabled = vim.lsp.inlay_hint.is_enabled({ bufnr = bufnr })
 			vim.lsp.inlay_hint.enable(not is_enabled)

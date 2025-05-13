@@ -177,6 +177,9 @@ vim.opt.virtualedit = "onemore"
 -- diff stuff
 vim.opt.diffopt = vim.opt.diffopt + "foldcolumn:0"
 
+-- session
+vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
+
 -- fold settings - requires treesitter!
 -- NOTE: this fucks up performance BADLY when opening big files
 -- vim.opt.foldmethod = "expr"
