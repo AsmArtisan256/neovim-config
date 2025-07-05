@@ -6,136 +6,124 @@
 -- thanks to `benbrastmckie`
 -- https://github.com/benbrastmckie/.config
 
--- Plugged object
-local Plug = vim.fn["plug#"]
-vim.call("plug#begin", "~/.config/nvim/plugged")
+vim.pack.add({
+	-- theme
+	"https://github.com/sainnhe/gruvbox-material",
+	"https://github.com/catppuccin/nvim",
+	"https://github.com/sainnhe/everforest",
+	"https://github.com/andreasvc/vim-256noir",
 
--- theme
-Plug("sainnhe/gruvbox-material")
-Plug("catppuccin/nvim")
-Plug("sainnhe/everforest")
-Plug("andreasvc/vim-256noir")
+	-- utils
+	"https://github.com/nvim-lua/plenary.nvim",
 
--- utils
-Plug("nvim-lua/plenary.nvim")
--- Plug("nvim-telescope/telescope.nvim")
+	-- vim lualine
+	"https://github.com/nvim-lualine/lualine.nvim",
 
--- vim lualine
-Plug("nvim-lualine/lualine.nvim")
+	-- better comments
+	"https://github.com/terrortylor/nvim-comment",
 
--- better comments
-Plug("terrortylor/nvim-comment")
+	-- git support
+	"https://github.com/tpope/vim-fugitive",
 
--- git support
-Plug("tpope/vim-fugitive")
+	-- git diffview
+	"https://github.com/sindrets/diffview.nvim",
 
--- git diffview
-Plug("sindrets/diffview.nvim")
+	-- git nice stuff
+	"https://github.com/lewis6991/gitsigns.nvim",
+	"https://github.com/rhysd/git-messenger.vim",
+	"https://github.com/rhysd/committia.vim",
 
--- git nice stuff
-Plug("lewis6991/gitsigns.nvim")
-Plug("rhysd/git-messenger.vim")
-Plug("rhysd/committia.vim")
+	-- undo tree
+	"https://github.com/mbbill/undotree",
 
--- undo tree
-Plug("mbbill/undotree")
+	-- speed motion
+	"https://github.com/phaazon/hop.nvim",
 
--- speed motion
-Plug("phaazon/hop.nvim")
+	-- multiple cursors
+	"https://github.com/mg979/vim-visual-multi",
 
--- multiple cursors
-Plug("mg979/vim-visual-multi")
+	-- fzf
+	"https://github.com/ibhagwan/fzf-lua",
 
--- fzf
-Plug("ibhagwan/fzf-lua")
+	-- nvim tree
+	"https://github.com/kyazdani42/nvim-tree.lua",
 
--- nvim tree
-Plug("kyazdani42/nvim-tree.lua")
+	-- treesitter
+	"https://github.com/nvim-treesitter/nvim-treesitter",
+	"https://github.com/nvim-treesitter/playground",
 
--- treesitter
-Plug("nvim-treesitter/nvim-treesitter", { ["do"] = ":TSUpdate" })
-Plug("nvim-treesitter/playground")
+	-- treesitter tags auto-pair
+	"https://github.com/windwp/nvim-ts-autotag",
 
--- treesitter tags auto-pair
-Plug("windwp/nvim-ts-autotag")
+	-- autopairing
+	"https://github.com/altermo/ultimate-autopair.nvim",
 
--- autopairing
-Plug("altermo/ultimate-autopair.nvim")
+	-- latex
+	"https://github.com/lervag/vimtex",
+	"https://github.com/matze/vim-tex-fold",
 
--- latex
-Plug("lervag/vimtex")
-Plug("matze/vim-tex-fold")
+	-- neovim lspconfig
+	"https://github.com/neovim/nvim-lspconfig",
 
--- neovim lspconfig
-Plug("neovim/nvim-lspconfig")
+	-- lsp signature
+	"https://github.com/ray-x/lsp_signature.nvim",
 
--- lsp signature
-Plug("ray-x/lsp_signature.nvim")
+	-- nvim-cmp
+	"https://github.com/hrsh7th/cmp-nvim-lsp",
+	"https://github.com/hrsh7th/cmp-path",
+	"https://github.com/hrsh7th/nvim-cmp",
 
--- nvim-cmp
-Plug("hrsh7th/cmp-nvim-lsp")
-Plug("hrsh7th/cmp-path")
-Plug("hrsh7th/nvim-cmp")
+	-- blink cmp
+	{
+		src = "https://github.com/saghen/blink.cmp",
+		version = "v1.4.1",
+	},
 
--- blink cmp
-Plug("saghen/blink.cmp", { branch = "v1.3.0" })
+	-- rust tools
+	"https://github.com/simrat39/rust-tools.nvim",
 
--- dart lsp
-Plug("akinsho/flutter-tools.nvim")
+	-- formatter
+	"https://github.com/sbdchd/neoformat",
 
--- rust tools
-Plug("simrat39/rust-tools.nvim")
+	-- snippets
+	"https://github.com/rafamadriz/friendly-snippets",
 
--- formatter
-Plug("sbdchd/neoformat")
+	-- which-key
+	"https://github.com/folke/which-key.nvim",
 
--- UltiSnips
--- Plug("SirVer/ultisnips")
--- Plug("quangnguyen30192/cmp-nvim-ultisnips")
+	-- session manager
+	"https://github.com/rmagatti/auto-session",
 
--- snippets
-Plug("rafamadriz/friendly-snippets")
+	-- window pick
+	"https://github.com/yorickpeterse/nvim-window",
 
--- which-key
-Plug("folke/which-key.nvim")
+	-- show indentation
+	"https://github.com/echasnovski/mini.indentscope",
 
--- session manager
-Plug("rmagatti/auto-session")
+	-- distraction free editing
+	"https://github.com/junegunn/goyo.vim",
 
--- window pick
-Plug("yorickpeterse/nvim-window")
+	-- Rust
+	"https://github.com/rust-lang/rust.vim",
 
--- show indentation
-Plug("echasnovski/mini.indentscope")
+	-- EditorConfig
+	"https://github.com/gpanders/editorconfig.nvim",
 
--- distraction free editing
-Plug("junegunn/goyo.vim")
+	-- orgmode
+	-- "https://github.com/nvim-orgmode/orgmode",
 
--- Rust
-Plug("rust-lang/rust.vim")
+	-- vim surround
+	"https://github.com/kylechui/nvim-surround",
 
--- EditorConfig
-Plug("gpanders/editorconfig.nvim")
+	-- guess indentation
+	"https://github.com/NMAC427/guess-indent.nvim",
 
--- orgmode
--- Plug("nvim-orgmode/orgmode")
+	-- todo comments
+	"https://github.com/folke/todo-comments.nvim",
 
--- vim surround
-Plug("kylechui/nvim-surround")
-
--- guess indentation
-Plug("NMAC427/guess-indent.nvim")
-
--- todo comments
-Plug("folke/todo-comments.nvim")
-
--- fold
--- Plug("anuvyklack/pretty-fold.nvim")
-
--- nvim lua dev
-Plug("rafcamlet/nvim-luapad")
-
-vim.call("plug#end")
+	-- nvim lua dev
+	"https://github.com/rafcamlet/nvim-luapad",
+})
 
 -- gotta go fast
 vim.loader.enable()
