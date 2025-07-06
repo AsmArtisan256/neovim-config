@@ -101,7 +101,7 @@ vim.pack.add({
 	"https://github.com/echasnovski/mini.indentscope",
 
 	-- distraction free editing
-	"https://github.com/junegunn/goyo.vim",
+	"https://github.com/folke/zen-mode.nvim",
 
 	-- Rust
 	"https://github.com/rust-lang/rust.vim",
