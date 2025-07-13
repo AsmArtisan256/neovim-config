@@ -1,6 +1,6 @@
 -- multiple cursors
 
-vim.g.VM_theme = 'iceblue'
+vim.g.VM_theme = "iceblue"
 vim.g.VM_highlight_matches = "underline"
 
 vim.g.VM_default_mappings = 0
@@ -15,4 +15,15 @@ vim.g.VM_maps = {
 	["Add Cursor Down"] = "<A-C-Down>",
 	["Select l"] = "<A-C-Right>",
 	["Select h"] = "<A-C-Left>",
+    -- fix incompatibilities between autocompletion
+    -- and multiple cursors plugin
+    -- this does make the plugin usage way worse tbh
+	["I BS"] = "",
+	["Goto Next"] = "]v",
+	["Goto Prev"] = "[v",
+	["I CtrlB"] = "<M-b>",
+	["I CtrlF"] = "<M-f>",
+	["I Return"] = "<A-CR>",
+	["I Down Arrow"] = "",
+	["I Up Arrow"] = "",
 }
