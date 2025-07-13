@@ -1,6 +1,6 @@
 -- multiple cursors
 
-vim.g.VM_theme = "iceblue"
+vim.g.VM_theme = "neon"
 vim.g.VM_highlight_matches = "underline"
 
 vim.g.VM_default_mappings = 0
@@ -13,8 +13,8 @@ vim.g.VM_maps = {
 	["Redo"] = "<C-r>",
 	["Add Cursor Up"] = "<A-C-Up>",
 	["Add Cursor Down"] = "<A-C-Down>",
-	["Select l"] = "<A-C-Right>",
-	["Select h"] = "<A-C-Left>",
+	["Select l"] = "",
+	["Select h"] = "",
     -- fix incompatibilities between autocompletion
     -- and multiple cursors plugin
     -- this does make the plugin usage way worse tbh
@@ -27,3 +27,9 @@ vim.g.VM_maps = {
 	["I Down Arrow"] = "",
 	["I Up Arrow"] = "",
 }
+
+-- delete for good, I have no clue why
+-- defining Select h and Select l
+-- as empty is not sufficient!
+vim.keymap.del('n', '<S-Left>')
+vim.keymap.del('n', '<S-Right>')
