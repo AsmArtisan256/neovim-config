@@ -1,35 +1,75 @@
 -- multiple cursors
+-- credits to https://github.com/dmtrKovalenko/dotfiles/blob/main/.config/nvim/lua/plugins/multicursor.lua
 
-vim.g.VM_theme = "neon"
-vim.g.VM_highlight_matches = "underline"
+local mc = require("multicursor-nvim")
+mc.setup({
+	-- set to true if you want multicursor undo history
+	-- to clear when clearing cursors
+	shallowUndo = false,
 
-vim.g.VM_default_mappings = 0
-vim.g.VM_mouse_mappings = 1
+	-- set to empty table to disable signs
+	signs = { " ┆", " │", " ┃" },
+})
 
-vim.g.VM_maps = {
-	["Find Under"] = "<A-n>",
-	["Find Subword Under"] = "<A-n>",
-	["Undo"] = "u",
-	["Redo"] = "<C-r>",
-	["Add Cursor Up"] = "<A-C-Up>",
-	["Add Cursor Down"] = "<A-C-Down>",
-	["Select l"] = "",
-	["Select h"] = "",
-    -- fix incompatibilities between autocompletion
-    -- and multiple cursors plugin
-    -- this does make the plugin usage way worse tbh
-	["I BS"] = "",
-	["Goto Next"] = "]v",
-	["Goto Prev"] = "[v",
-	["I CtrlB"] = "<M-b>",
-	["I CtrlF"] = "<M-f>",
-	["I Return"] = "<A-CR>",
-	["I Down Arrow"] = "",
-	["I Up Arrow"] = "",
-}
+-- Add or skip cursor above/below the main cursor.
+vim.keymap.set({ "n", "v" }, "<C-A-k>", function()
+	mc.lineAddCursor(-1)
+end)
+vim.keymap.set({ "n", "v" }, "<C-A-j>", function()
+	mc.lineAddCursor(1)
+end)
+vim.keymap.set({ "n", "v" }, "<C-A-up>", function()
+	mc.lineSkipCursor(-1)
+end)
+vim.keymap.set({ "n", "v" }, "<C-A-down>", function()
+	mc.lineSkipCursor(1)
+end)
 
--- delete for good, I have no clue why
--- defining Select h and Select l
--- as empty is not sufficient!
-vim.keymap.del('n', '<S-Left>')
-vim.keymap.del('n', '<S-Right>')
+-- First add a cursor to the current word next jump the next match
+vim.keymap.set("n", "<C-d>", "viw")
+
+-- Add a cursor and jump to the next word under cursor.
+vim.keymap.set("v", "<C-d>", function()
+	mc.addCursor("*")
+end)
+
+-- Delete the main cursor.
+vim.keymap.set({ "n", "v" }, "<leader>x", mc.deleteCursor)
+
+-- clone every cursor and disable the originals
+vim.keymap.set({ "n", "v" }, "<leader><c-q>", mc.duplicateCursors)
+
+vim.keymap.set("n", "<esc>", function()
+	if not mc.cursorsEnabled() then
+		mc.enableCursors()
+	elseif mc.hasCursors() then
+		mc.clearCursors()
+	else
+		-- Default <esc> handler.
+	end
+end)
+
+-- Align cursor columns.
+vim.keymap.set("v", "<leader>a", mc.alignCursors)
+
+-- Append/insert for each line of visual selections.
+vim.keymap.set("v", "I", mc.insertVisual)
+
+-- match new cursors within visual selections by regex.
+vim.keymap.set("v", "M", mc.matchCursors)
+
+-- Rotate visual selection contents.
+vim.keymap.set("v", "<leader>t", function()
+	mc.transposeCursors(1)
+end)
+vim.keymap.set("v", "<leader>T", function()
+	mc.transposeCursors(-1)
+end)
+
+-- Customize how cursors look.
+vim.api.nvim_set_hl(0, "MultiCursorCursor", { link = "Cursor" })
+vim.api.nvim_set_hl(0, "MultiCursorVisual", { link = "Visual" })
+vim.api.nvim_set_hl(0, "MultiCursorSign", { link = "SignColumn" })
+vim.api.nvim_set_hl(0, "MultiCursorDisabledCursor", { link = "Visual" })
+vim.api.nvim_set_hl(0, "MultiCursorDisabledVisual", { link = "Visual" })
+vim.api.nvim_set_hl(0, "MultiCursorDisabledSign", { link = "SignColumn" })

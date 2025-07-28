@@ -14,6 +14,7 @@ vim.pack.add({
 	"https://github.com/andreasvc/vim-256noir",
 
 	-- utils
+	"https://github.com/nvim-tree/nvim-web-devicons",
 	"https://github.com/nvim-lua/plenary.nvim",
 
 	-- vim lualine
@@ -40,7 +41,8 @@ vim.pack.add({
 	"https://github.com/phaazon/hop.nvim",
 
 	-- multiple cursors
-	"https://github.com/mg979/vim-visual-multi",
+	-- "https://github.com/mg979/vim-visual-multi",
+	"https://github.com/jake-stewart/multicursor.nvim",
 
 	-- fzf
 	"https://github.com/ibhagwan/fzf-lua",
