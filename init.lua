@@ -49,6 +49,7 @@ vim.pack.add({
 
 	-- nvim tree
 	"https://github.com/kyazdani42/nvim-tree.lua",
+	"https://github.com/hedyhli/outline.nvim",
 
 	-- treesitter
 	"https://github.com/nvim-treesitter/nvim-treesitter",
