@@ -75,3 +75,8 @@ vim.keymap.set("n", "*", "*zz", opts)
 vim.keymap.set("n", "#", "#zz", opts)
 vim.keymap.set("n", "<C-i>", "<C-i>zz", opts)
 vim.keymap.set("n", "<C-o>", "<C-o>zz", opts)
+
+-- https://www.reddit.com/r/neovim/comments/v7s1ts/how_do_i_avoid_replacing_the_content_of_my/
+-- Don't touch unnamed register when pasting over visual selection
+vim.api.nvim_exec([[xnoremap <expr> p 'pgv"' . v:register . 'y']], false)
+
