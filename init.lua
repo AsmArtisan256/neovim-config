@@ -96,6 +96,7 @@ vim.pack.add({
 
 	-- session manager
 	"https://github.com/rmagatti/auto-session",
+	"https://github.com/folke/persistence.nvim",
 
 	-- window pick
 	"https://github.com/yorickpeterse/nvim-window",
@@ -126,6 +127,9 @@ vim.pack.add({
 
 	-- nvim lua dev
 	"https://github.com/rafcamlet/nvim-luapad",
+
+	-- dashboard
+	"https://github.com/nvimdev/dashboard-nvim",
 })
 
 -- gotta go fast
@@ -177,3 +181,4 @@ if vim.g.neovide then
 	vim.opt.pumblend = 30
 	vim.opt.winblend = 30
 end
+
