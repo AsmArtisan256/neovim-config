@@ -79,7 +79,7 @@ vim.pack.add({
 	-- blink cmp
 	{
 		src = "https://github.com/saghen/blink.cmp",
-		version = "v1.4.1",
+		version = "v1.6.0",
 	},
 
 	-- rust tools

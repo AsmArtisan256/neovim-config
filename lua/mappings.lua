@@ -7,7 +7,7 @@ vim.api.nvim_set_keymap("n", "<leader>q", ":bd<CR>", {})
 -- save
 vim.api.nvim_set_keymap("n", "<leader>w", ":w<CR>", {})
 
-vim.api.nvim_set_keymap("n", "<leader>p", "\"_dP", {})
+vim.api.nvim_set_keymap("n", "<leader>p", '"_dP', {})
 
 -- buffer change
 vim.api.nvim_set_keymap("n", "<Tab>", ":bnext<CR>", {})
@@ -79,4 +79,3 @@ vim.keymap.set("n", "<C-o>", "<C-o>zz", opts)
 -- https://www.reddit.com/r/neovim/comments/v7s1ts/how_do_i_avoid_replacing_the_content_of_my/
 -- Don't touch unnamed register when pasting over visual selection
 vim.api.nvim_exec([[xnoremap <expr> p 'pgv"' . v:register . 'y']], false)
-
