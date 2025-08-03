@@ -171,6 +171,10 @@ vim.opt.completeopt = "menu"
 vim.opt.completeopt = vim.opt.completeopt + "menuone"
 vim.opt.completeopt = vim.opt.completeopt + "noselect"
 
+-- some neovim options for edgy.nvim
+vim.opt.laststatus = 3
+vim.opt.splitkeep = "screen"
+
 -- edit 1 char after end of line
 vim.opt.virtualedit = "onemore"
 

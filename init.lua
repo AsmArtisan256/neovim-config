@@ -47,10 +47,6 @@ vim.pack.add({
 	-- fzf
 	"https://github.com/ibhagwan/fzf-lua",
 
-	-- nvim tree
-	"https://github.com/kyazdani42/nvim-tree.lua",
-	"https://github.com/hedyhli/outline.nvim",
-
 	-- treesitter
 	"https://github.com/nvim-treesitter/nvim-treesitter",
 	"https://github.com/nvim-treesitter/playground",
@@ -62,8 +58,8 @@ vim.pack.add({
 	"https://github.com/altermo/ultimate-autopair.nvim",
 
 	-- latex
-	"https://github.com/lervag/vimtex",
-	"https://github.com/matze/vim-tex-fold",
+	-- "https://github.com/lervag/vimtex",
+	-- "https://github.com/matze/vim-tex-fold",
 
 	-- neovim lspconfig
 	"https://github.com/neovim/nvim-lspconfig",
@@ -72,18 +68,15 @@ vim.pack.add({
 	"https://github.com/ray-x/lsp_signature.nvim",
 
 	-- nvim-cmp
-	"https://github.com/hrsh7th/cmp-nvim-lsp",
-	"https://github.com/hrsh7th/cmp-path",
-	"https://github.com/hrsh7th/nvim-cmp",
+	-- "https://github.com/hrsh7th/cmp-nvim-lsp",
+	-- "https://github.com/hrsh7th/cmp-path",
+	-- "https://github.com/hrsh7th/nvim-cmp",
 
 	-- blink cmp
 	{
 		src = "https://github.com/saghen/blink.cmp",
 		version = "v1.6.0",
 	},
-
-	-- rust tools
-	"https://github.com/simrat39/rust-tools.nvim",
 
 	-- formatter
 	"https://github.com/sbdchd/neoformat",
@@ -107,14 +100,8 @@ vim.pack.add({
 	-- distraction free editing
 	"https://github.com/folke/zen-mode.nvim",
 
-	-- Rust
-	"https://github.com/rust-lang/rust.vim",
-
 	-- EditorConfig
 	"https://github.com/gpanders/editorconfig.nvim",
-
-	-- orgmode
-	-- "https://github.com/nvim-orgmode/orgmode",
 
 	-- vim surround
 	"https://github.com/kylechui/nvim-surround",
@@ -127,9 +114,6 @@ vim.pack.add({
 
 	-- nvim lua dev
 	"https://github.com/rafcamlet/nvim-luapad",
-
-	-- dashboard
-	"https://github.com/nvimdev/dashboard-nvim",
 })
 
 -- gotta go fast
