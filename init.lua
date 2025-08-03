@@ -181,4 +181,3 @@ if vim.g.neovide then
 	vim.opt.pumblend = 30
 	vim.opt.winblend = 30
 end
-
