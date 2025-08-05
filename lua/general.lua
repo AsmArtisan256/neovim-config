@@ -178,6 +178,9 @@ vim.opt.splitkeep = "screen"
 -- edit 1 char after end of line
 vim.opt.virtualedit = "onemore"
 
+-- borders
+vim.o.winborder = "rounded"
+
 -- diff stuff
 vim.opt.diffopt = vim.opt.diffopt + "foldcolumn:0"
 
