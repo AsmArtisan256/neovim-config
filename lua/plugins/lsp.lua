@@ -1,4 +1,4 @@
-local LspConfig = require("lspconfig")
+-- local LspConfig = require("lspconfig")
 -- local Telescope = require("telescope.builtin")
 
 local border = {
@@ -162,81 +162,96 @@ vim.diagnostic.config({
 })
 
 -- Lua
-LspConfig.lua_ls.setup(config({
-	on_attach = on_attach,
-	handlers = handlers,
-	flags = { debounce_text_changes = 500 },
-	settings = {
-		Lua = {
-			completion = { workspaceWord = false },
-			runtime = { version = "LuaJIT", path = vim.split(package.path, ";") },
-			diagnostics = { globals = { "vim" } },
-			workspace = {
-				library = {
-					[vim.fn.expand("$VIMRUNTIME/lua")] = true,
-					[vim.fn.expand("$VIMRUNTIME/lua/vim/lsp")] = true,
+vim.lsp.config(
+	"lua_ls",
+	config({
+		on_attach = on_attach,
+		handlers = handlers,
+		flags = { debounce_text_changes = 500 },
+		settings = {
+			Lua = {
+				completion = { workspaceWord = false },
+				runtime = { version = "LuaJIT", path = vim.split(package.path, ";") },
+				diagnostics = { globals = { "vim" } },
+				workspace = {
+					library = {
+						[vim.fn.expand("$VIMRUNTIME/lua")] = true,
+						[vim.fn.expand("$VIMRUNTIME/lua/vim/lsp")] = true,
+					},
 				},
+				telemetry = { enable = false },
 			},
-			telemetry = { enable = false },
 		},
-	},
-}))
+	})
+)
 
 -- C/C++
-LspConfig.clangd.setup(config({
-	on_attach = on_attach,
-	handlers = handlers,
-	flags = { debounce_text_changes = 500 },
-	-- root_dir = LspConfig.util.root_pattern("compile_commands.json", ".git"),
-	cmd = {
-		-- see clangd --help-hidden
-		"clangd",
-		"--background-index",
-		-- by default, clang-tidy use -checks=clang-diagnostic-*,clang-analyzer-*
-		-- to add more checks, create .clang-tidy file in the root directory
-		-- and add Checks key, see https://clang.llvm.org/extra/clang-tidy/
-		"--clang-tidy",
-		"--completion-style=bundled",
-		"--cross-file-rename",
-		"--header-insertion=never",
-	},
-}))
+vim.lsp.config(
+	"clangd",
+	config({
+		on_attach = on_attach,
+		handlers = handlers,
+		flags = { debounce_text_changes = 500 },
+		-- root_dir = LspConfig.util.root_pattern("compile_commands.json", ".git"),
+		cmd = {
+			-- see clangd --help-hidden
+			"clangd",
+			"--background-index",
+			-- by default, clang-tidy use -checks=clang-diagnostic-*,clang-analyzer-*
+			-- to add more checks, create .clang-tidy file in the root directory
+			-- and add Checks key, see https://clang.llvm.org/extra/clang-tidy/
+			"--clang-tidy",
+			"--completion-style=bundled",
+			"--cross-file-rename",
+			"--header-insertion=never",
+		},
+	})
+)
 
 -- Python
-LspConfig.pyright.setup(config({
-	on_attach = on_attach,
-	handlers = handlers,
-	flags = { debounce_text_changes = 500 },
-}))
+vim.lsp.config(
+	"pyright",
+	config({
+		on_attach = on_attach,
+		handlers = handlers,
+		flags = { debounce_text_changes = 500 },
+	})
+)
 
 -- HTML/CSS/JS???
-LspConfig.html.setup(config({
-	on_attach = on_attach,
-	handlers = handlers,
-	flags = { debounce_text_changes = 500 },
-	settings = {
-		html = {
-			format = {
-				templating = true,
-				wrapLineLength = 120,
-				wrapAttributes = "auto",
-			},
-			hover = {
-				documentation = true,
-				references = true,
+vim.lsp.config(
+	"html",
+	config({
+		on_attach = on_attach,
+		handlers = handlers,
+		flags = { debounce_text_changes = 500 },
+		settings = {
+			html = {
+				format = {
+					templating = true,
+					wrapLineLength = 120,
+					wrapAttributes = "auto",
+				},
+				hover = {
+					documentation = true,
+					references = true,
+				},
 			},
 		},
-	},
-}))
+	})
+)
 
-LspConfig.ts_ls.setup(config({
-	on_attach = on_attach,
-	handlers = handlers,
-	flags = { debounce_text_changes = 1000, allow_incremental_sync = true },
-}))
+vim.lsp.config(
+	"ts_ls",
+	config({
+		on_attach = on_attach,
+		handlers = handlers,
+		flags = { debounce_text_changes = 1000, allow_incremental_sync = true },
+	})
+)
 
 -- Rust Tools
-LspConfig.rust_analyzer.setup({
+vim.lsp.config("rust_analyzer", {
 	on_attach = on_attach,
 	handlers = handlers,
 })
@@ -264,39 +279,42 @@ LspConfig.rust_analyzer.setup({
 -- })
 
 -- Zig
-LspConfig.zls.setup(config({
-	on_attach = on_attach,
-	handlers = handlers,
-	flags = { debounce_text_changes = 500 },
-	settings = {
-		enable_autofix = true,
-	},
-}))
-
--- Kotlin
--- LspConfig.kotlin_language_server.setup(config({
--- 	on_attach = on_attach,
--- 	handlers = handlers,
--- 	flags = { debounce_text_changes = 500 },
--- }))
+vim.lsp.config(
+	"zls",
+	config({
+		on_attach = on_attach,
+		handlers = handlers,
+		flags = { debounce_text_changes = 500 },
+		settings = {
+			enable_autofix = true,
+		},
+	})
+)
 
 -- LaTeX
-LspConfig.texlab.setup(config({
-	on_attach = on_attach,
-	handlers = handlers,
-	flags = { debounce_text_changes = 500 },
-	settings = {
-		build = {
-			-- this doesnt seem to work
-			executable = "lualatex",
-			args = { "-shell-escape", "-interaction=nonstopmode", "-synctex=1", "%f" },
+vim.lsp.config(
+	"texlab",
+	config({
+		on_attach = on_attach,
+		handlers = handlers,
+		flags = { debounce_text_changes = 500 },
+		settings = {
+			build = {
+				-- this doesnt seem to work
+				executable = "lualatex",
+				args = { "-shell-escape", "-interaction=nonstopmode", "-synctex=1", "%f" },
+			},
+			chktex = {
+				onOpenAndSave = false,
+				onEdit = false,
+			},
 		},
-		chktex = {
-			onOpenAndSave = false,
-			onEdit = false,
-		},
-	},
-}))
+	})
+)
+
+vim.lsp.enable({
+	"clangd"
+})
 
 function Show_line_diagnostics()
 	local opts = {
