@@ -8,10 +8,10 @@
 
 vim.pack.add({
 	-- theme
-	"https://github.com/sainnhe/gruvbox-material",
+	-- "https://github.com/sainnhe/gruvbox-material",
 	"https://github.com/catppuccin/nvim",
-	"https://github.com/sainnhe/everforest",
-	"https://github.com/andreasvc/vim-256noir",
+	-- "https://github.com/sainnhe/everforest",
+	-- "https://github.com/andreasvc/vim-256noir",
 
 	-- utils
 	"https://github.com/nvim-tree/nvim-web-devicons",
@@ -75,7 +75,7 @@ vim.pack.add({
 	-- blink cmp
 	{
 		src = "https://github.com/saghen/blink.cmp",
-		version = "v1.6.0",
+		version = "v1.8.0",
 	},
 
 	-- formatter
@@ -88,8 +88,10 @@ vim.pack.add({
 	"https://github.com/folke/which-key.nvim",
 
 	-- session manager
-	"https://github.com/rmagatti/auto-session",
-	"https://github.com/folke/persistence.nvim",
+	-- "https://github.com/rmagatti/auto-session",
+	-- "https://github.com/folke/persistence.nvim",
+	"https://github.com/Shatur/neovim-session-manager",
+	"https://github.com/coffebar/neovim-project",
 
 	-- window pick
 	"https://github.com/yorickpeterse/nvim-window",
