@@ -30,9 +30,10 @@ vim.pack.add({
 	"https://github.com/sindrets/diffview.nvim",
 
 	-- git nice stuff
+	"https://github.com/NeogitOrg/neogit",
 	"https://github.com/lewis6991/gitsigns.nvim",
-	"https://github.com/rhysd/git-messenger.vim",
-	"https://github.com/rhysd/committia.vim",
+	-- "https://github.com/rhysd/git-messenger.vim",
+	-- "https://github.com/rhysd/committia.vim",
 
 	-- undo tree
 	"https://github.com/mbbill/undotree",
