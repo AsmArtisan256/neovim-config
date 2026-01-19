@@ -313,7 +313,8 @@ vim.lsp.config(
 )
 
 vim.lsp.enable({
-	"clangd"
+	"clangd",
+	"zls"
 })
 
 function Show_line_diagnostics()
