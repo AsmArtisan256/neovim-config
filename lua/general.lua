@@ -187,6 +187,9 @@ vim.opt.diffopt = vim.opt.diffopt + "foldcolumn:0"
 -- session
 vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
 
+-- load project local nvim configs
+vim.opt.exrc = true
+
 -- fold settings - requires treesitter!
 -- NOTE: this fucks up performance BADLY when opening big files
 -- vim.opt.foldmethod = "expr"
