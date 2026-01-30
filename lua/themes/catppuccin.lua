@@ -9,7 +9,7 @@ require("catppuccin").setup({
 		dark = "mocha",
 	},
 	transparent_background = false,
-	show_end_of_buffer = false, -- show the '~' characters after the end of buffers
+	show_end_of_buffer = true, -- show the '~' characters after the end of buffers
 	term_colors = true,
 	dim_inactive = {
 		enabled = false,
@@ -82,7 +82,13 @@ require("catppuccin").setup({
 			-- surface0 = "#383838",
 		},
 	},
-	custom_highlights = {},
+	custom_highlights = function(colors)
+		return {
+			rustTodo = { link = "Comment" },
+			Todo = { link = "Comment" },
+			["@comment.todo"] = { link = "Comment" },
+		}
+	end,
 	integrations = {
 		cmp = true,
 		gitsigns = true,
@@ -103,28 +109,4 @@ vim.cmd([[highlight MatchParen cterm=bold cterm=underline ctermfg=red guibg=blue
 
 vim.cmd([[highlight WinSeparator ctermbg=grey guibg=#11111b ctermfg=grey guifg=grey]])
 
--- vim.cmd([[hi Delimiter guifg=#ff0000]])
--- highlight vimtex conceal with better colors
--- vim.cmd([[highlight Conceal ctermfg=red guifg=red]])
-
--- taken from
--- https://github.com/angelofallars/dotfiles/blob/main/nvim/lua/plugins/config/gruvbox_material.lua
--- vim.cmd([[ highlight FloatBorder guibg=NONE ]])
--- vim.cmd([[ highlight NormalFloat guibg=NONE ]])
-
--- vim.cmd([[highlight CmpCurrentLine guibg=#a9b665 guifg=#282828]])
-
--- vim.cmd([[highlight! link CmpNormal normal]])
--- vim.cmd([[highlight CmpBorder guifg=#5a524c]])
-
--- vim.cmd([[highlight CmpDocNormal guibg=#242322]])
--- vim.cmd([[highlight link CmpDocBorder CmpBorder]])
-
--- vim.cmd([[highlight! link FloatBorder CmpBorder]])
-
 vim.cmd([[highlight VertSplit guifg=#f9e2af]])
-
--- vim.cmd([[highlight! link NvimTreeFolderIcon green]])
--- vim.cmd([[highlight! link NvimTreeFolderName green]])
-
--- vim.cmd([[hi link FloatTitle blue]])
