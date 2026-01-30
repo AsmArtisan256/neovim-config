@@ -37,8 +37,11 @@ require("catppuccin").setup({
 		mocha = {
 			text = "#ffffff",
 			overlay1 = "#f38ba8",
-			base = "#11111b",
 			surface2 = "#acb0be",
+
+			base = "#000000",
+			mantle = "#000000",
+			crust = "#000000",
 
 			-- text = "#ffffff",
 			-- peach = "#ffffff",

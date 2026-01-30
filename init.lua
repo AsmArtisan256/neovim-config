@@ -117,6 +117,9 @@ vim.pack.add({
 
 	-- nvim lua dev
 	"https://github.com/rafcamlet/nvim-luapad",
+
+	-- delete buffers without changing layout
+	"https://github.com/wsdjeg/bufdel.nvim",
 })
 
 -- gotta go fast

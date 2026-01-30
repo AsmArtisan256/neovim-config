@@ -33,9 +33,14 @@ local function lsp_name()
 	return msg
 end
 
+-- theme changes
+local theme = require("lualine.themes.auto")
+theme.normal.c.bg = "#1a1a1a"
+theme.inactive.c.bg = "#1a1a1a"
+
 LuaLine.setup({
 	options = {
-		theme = "auto",
+		theme = theme,
 		always_divide_middle = true,
 		icons_enabled = true,
 		disabled_filetypes = { "NvimTree" },
@@ -54,7 +59,7 @@ LuaLine.setup({
 				"diagnostics",
 				sources = { "nvim_diagnostic" },
 				sections = { "error", "warn", "info", "hint" },
-				symbols = { error = '  ', warn = '  ', info = '  ' },
+				symbols = { error = "  ", warn = "  ", info = "  " },
 				diagnostics_color = {
 					error = { fg = colors.red },
 					warn = { fg = colors.yellow },
@@ -65,7 +70,9 @@ LuaLine.setup({
 			},
 		},
 		lualine_c = {
-			{ "filename" },
+			{
+				"filename",
+			},
 		},
 		lualine_x = {
 			{ lsp_name, icon = "  LSP:" },
