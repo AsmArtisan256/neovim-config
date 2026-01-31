@@ -34,13 +34,13 @@ local function lsp_name()
 end
 
 -- theme changes
-local theme = require("lualine.themes.auto")
-theme.normal.c.bg = "#1a1a1a"
-theme.inactive.c.bg = "#1a1a1a"
+-- local theme = require("lualine.themes.auto")
+-- theme.normal.c.bg = "#1a1a1a"
+-- theme.inactive.c.bg = "#1a1a1a"
 
 LuaLine.setup({
 	options = {
-		theme = theme,
+		theme = "tomorrow_night",
 		always_divide_middle = true,
 		icons_enabled = true,
 		disabled_filetypes = { "NvimTree" },
