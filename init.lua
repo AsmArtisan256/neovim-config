@@ -76,7 +76,7 @@ vim.pack.add({
 	-- blink cmp
 	{
 		src = "https://github.com/saghen/blink.cmp",
-		version = "v1.8.0",
+		version = "v1.10.1",
 	},
 
 	-- formatter
@@ -98,7 +98,8 @@ vim.pack.add({
 	"https://github.com/yorickpeterse/nvim-window",
 
 	-- show indentation
-	"https://github.com/echasnovski/mini.indentscope",
+	-- "https://github.com/echasnovski/mini.indentscope",
+    "https://github.com/saghen/blink.indent",
 
 	-- distraction free editing
 	"https://github.com/folke/zen-mode.nvim",
@@ -120,6 +121,9 @@ vim.pack.add({
 
 	-- delete buffers without changing layout
 	"https://github.com/wsdjeg/bufdel.nvim",
+
+	-- compile mode
+	"https://github.com/ej-shafran/compile-mode.nvim",
 })
 
 -- gotta go fast

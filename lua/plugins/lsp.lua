@@ -314,7 +314,8 @@ vim.lsp.config(
 
 vim.lsp.enable({
 	"clangd",
-	"zls"
+	"zls",
+	"pyright"
 })
 
 function Show_line_diagnostics()
