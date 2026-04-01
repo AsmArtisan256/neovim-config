@@ -82,3 +82,7 @@ vim.keymap.set({ "n", "i" }, "<C-d>", "yyp", { desc = "Duplicate current line be
 -- https://www.reddit.com/r/neovim/comments/v7s1ts/how_do_i_avoid_replacing_the_content_of_my/
 -- Don't touch unnamed register when pasting over visual selection
 vim.api.nvim_exec([[xnoremap <expr> p 'pgv"' . v:register . 'y']], false)
+
+-- undotree
+vim.cmd("packadd nvim.undotree")
+vim.keymap.set("n", "<leader>u", require("undotree").open)

@@ -35,9 +35,6 @@ vim.pack.add({
 	-- "https://github.com/rhysd/git-messenger.vim",
 	-- "https://github.com/rhysd/committia.vim",
 
-	-- undo tree
-	"https://github.com/mbbill/undotree",
-
 	-- speed motion
 	"https://github.com/phaazon/hop.nvim",
 
