@@ -24,6 +24,7 @@ TreeSitter.setup({
 		"markdown",
 		"markdown_inline",
 		"vimdoc",
+		"vim",
 	},
 	ignore_install = { "latex" },
 	highlight = {
