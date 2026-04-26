@@ -1,6 +1,3 @@
--- local LspConfig = require("lspconfig")
--- local Telescope = require("telescope.builtin")
-
 local border = {
 	{ "╭", "FloatBorder" },
 	{ "─", "FloatBorder" },
@@ -64,7 +61,6 @@ local function config(_config)
 	_capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 	return vim.tbl_deep_extend("force", {
-		-- capabilities = require("cmp_nvim_lsp").default_capabilities(_capabilities),
 		capabilities = require("blink.cmp").get_lsp_capabilities(_capabilities),
 	}, _config or {})
 end
@@ -255,28 +251,6 @@ vim.lsp.config("rust_analyzer", {
 	on_attach = on_attach,
 	handlers = handlers,
 })
--- require("rust-tools").setup({
--- 	server = config({
--- 		on_attach = on_attach,
--- 		handlers = handlers,
--- 		settings = {
--- 			["rust-analyzer"] = {
--- 				lens = { enable = true },
--- 				checkOnSave = { command = "clippy" },
--- 				assist = {
--- 					importGranularity = "module",
--- 					importPrefix = "self",
--- 				},
--- 				cargo = {
--- 					loadOutDirsFromCheck = true,
--- 				},
--- 				procMacro = {
--- 					enable = false,
--- 				},
--- 			},
--- 		},
--- 	}),
--- })
 
 -- Zig
 vim.lsp.config(
@@ -315,7 +289,8 @@ vim.lsp.config(
 vim.lsp.enable({
 	"clangd",
 	"zls",
-	"pyright"
+	"pyright",
+	"kotlin_lsp",
 })
 
 function Show_line_diagnostics()
@@ -327,4 +302,23 @@ function Show_line_diagnostics()
 		prefix = "",
 	}
 	vim.diagnostic.open_float(nil, opts)
+end
+
+local configs = require("lspconfig.configs")
+
+if not configs.kotlin_lsp then
+	configs.kotlin_lsp = {
+		default_config = {
+			cmd = { "kotlin-lsp" },
+			filetypes = { "kotlin", "java" },
+			root_markers = {
+				"build.gradle",
+				"build.gradle.kts",
+				"pom.xml",
+				"settings.gradle",
+				".git",
+			},
+			settings = {},
+		},
+	}
 end
