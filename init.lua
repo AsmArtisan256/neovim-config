@@ -8,10 +8,7 @@
 
 vim.pack.add({
 	-- theme
-	-- "https://github.com/sainnhe/gruvbox-material",
 	"https://github.com/catppuccin/nvim",
-	-- "https://github.com/sainnhe/everforest",
-	-- "https://github.com/andreasvc/vim-256noir",
 
 	-- utils
 	"https://github.com/nvim-tree/nvim-web-devicons",
@@ -32,8 +29,6 @@ vim.pack.add({
 	-- git nice stuff
 	"https://github.com/NeogitOrg/neogit",
 	"https://github.com/lewis6991/gitsigns.nvim",
-	-- "https://github.com/rhysd/git-messenger.vim",
-	-- "https://github.com/rhysd/committia.vim",
 
 	-- speed motion
 	"https://github.com/phaazon/hop.nvim",
@@ -108,6 +103,7 @@ vim.pack.add({
 	"https://github.com/kylechui/nvim-surround",
 
 	-- guess indentation
+	"https://github.com/tpope/vim-sleuth",
 	"https://github.com/NMAC427/guess-indent.nvim",
 
 	-- todo comments
@@ -121,6 +117,11 @@ vim.pack.add({
 
 	-- compile mode
 	"https://github.com/ej-shafran/compile-mode.nvim",
+
+	-- find replace
+	"https://github.com/MagicDuck/grug-far.nvim",
+	-- codediff
+	"https://github.com/esmuellert/codediff.nvim",
 })
 
 -- gotta go fast

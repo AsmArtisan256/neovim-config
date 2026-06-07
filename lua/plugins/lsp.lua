@@ -41,8 +41,10 @@ end
 
 -- setup handlers with border
 local handlers = {
-	["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = border }),
-	["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = border }),
+	-- ["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = border }),
+	["textDocument/hover"] = vim.lsp.buf.hover({ border = border }),
+	-- ["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = border }),
+	['textDocument/signatureHelp'] = vim.lsp.buf.signature_help({ border = 'rounded' }),
 	-- ["textDocument/definition"] = require('fzf-lua').lsp_definitions,
 	["textDocument/definition"] = function()
 		require("fzf-lua").lsp_definitions()
