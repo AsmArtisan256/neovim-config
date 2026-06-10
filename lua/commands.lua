@@ -126,17 +126,30 @@ vim.api.nvim_create_user_command("LspRestart", "lsp restart", {
 	desc = "Restart LSP",
 })
 
--- vim.api.nvim_create_autocmd("LspProgress", {
--- 	callback = function(ev)
--- 		vim.print(ev.data)
--- 		local value = ev.data.params.value
--- 		vim.api.nvim_echo({ { value.message or "done" } }, false, {
--- 			id = "lsp." .. ev.data.client_id,
--- 			kind = "progress",
--- 			source = "vim.lsp",
--- 			title = value.title,
--- 			status = value.kind ~= "end" and "running" or "success",
--- 			percent = value.percentage,
--- 		})
--- 	end,
--- })
+-- Treesitter
+local max_filesize = 1024 * 1024
+vim.api.nvim_create_autocmd("FileType", {
+	desc = "Setup native Treesitter features",
+	callback = function(args)
+		local bufnr = args.buf
+		local file_path = vim.api.nvim_buf_get_name(bufnr)
+
+		local ok, stats = pcall(vim.uv.fs_stat, file_path)
+		local disable_ts = ok and stats and stats.size > max_filesize
+
+		if disable_ts then
+			local has_ua, ua = pcall(require, "ultimate-autopair")
+			if has_ua then
+				ua.disable()
+			end
+
+			vim.bo[bufnr].syntax = "on"
+			return
+		end
+
+		pcall(vim.treesitter.start, bufnr)
+
+		vim.wo.foldmethod = "expr"
+		vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+	end,
+})

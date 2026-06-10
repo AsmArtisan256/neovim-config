@@ -16,7 +16,6 @@ require("local.secrets")
 
 require("plugins.general")
 
-require("plugins.treesitter")
 require("plugins.autotag")
 require("plugins.lualine")
 require("plugins.ultimate-autopair")
@@ -36,7 +35,7 @@ require("plugins.whichkey")
 
 require("plugins.multiplecursors")
 require("plugins.fzf")
-require("plugins.hop")
+require("plugins.flash")
 require("plugins.nvim_comment")
 require("plugins.vimtex")
 require("plugins.sessions")
