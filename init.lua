@@ -31,7 +31,8 @@ vim.pack.add({
 	"https://github.com/lewis6991/gitsigns.nvim",
 
 	-- speed motion
-	"https://github.com/phaazon/hop.nvim",
+	-- "https://github.com/phaazon/hop.nvim",
+	"https://github.com/folke/flash.nvim",
 
 	-- multiple cursors
 	-- "https://github.com/mg979/vim-visual-multi",
