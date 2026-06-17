@@ -41,6 +41,9 @@ vim.pack.add({
 	-- fzf
 	"https://github.com/ibhagwan/fzf-lua",
 
+	-- treesitter
+	"https://github.com/romus204/tree-sitter-manager.nvim",
+
 	-- treesitter tags auto-pair
 	"https://github.com/windwp/nvim-ts-autotag",
 

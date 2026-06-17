@@ -16,6 +16,8 @@ require("local.secrets")
 
 require("plugins.general")
 
+require("plugins.treesitter")
+
 require("plugins.autotag")
 require("plugins.lualine")
 require("plugins.ultimate-autopair")
