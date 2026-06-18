@@ -1,3 +1,17 @@
+local function safe_require(mod)
+  local config = vim.fn.stdpath("config")
+  local path = config .. "/lua/" .. mod:gsub("%.", "/")
+
+  local file = path .. ".lua"
+  local init_file = path .. "/init.lua"
+
+  if vim.uv.fs_stat(file) or vim.uv.fs_stat(init_file) then
+    return require(mod)
+  end
+
+  return nil
+end
+
 require("general")
 require("general.setcellwidths")
 
@@ -9,8 +23,8 @@ require("commands")
 
 -- local
 
-require("local.crypter")
-require("local.secrets")
+safe_require("local.crypter")
+safe_require("local.secrets")
 
 -- plugins
 
