@@ -29,6 +29,7 @@ vim.pack.add({
 	-- git nice stuff
 	"https://github.com/NeogitOrg/neogit",
 	"https://github.com/lewis6991/gitsigns.nvim",
+	"https://github.com/justinmk/guh.nvim",
 
 	-- speed motion
 	-- "https://github.com/phaazon/hop.nvim",
