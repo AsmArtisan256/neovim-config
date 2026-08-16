@@ -61,4 +61,4 @@ require("plugins.guessindent")
 require("plugins.todocomments")
 require("plugins.bufdel")
 require("plugins.compile-mode")
-
+require("plugins.orgmode")

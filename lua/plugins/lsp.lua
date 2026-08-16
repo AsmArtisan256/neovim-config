@@ -288,11 +288,33 @@ vim.lsp.config(
 	})
 )
 
+vim.lsp.config(
+	"kotlin_lsp",
+	config({
+		on_attach = on_attach,
+		handlers = handlers,
+		flags = { debounce_text_changes = 500 },
+		cmd = { "kotlin-lsp", "--stdio" },
+		single_file_support = true,
+		filetypes = { "kotlin" },
+		root_markers = {
+			"build.gradle",
+			"build.gradle.kts",
+			"pom.xml",
+			"settings.gradle",
+			".git",
+		},
+		settings = {},
+	})
+)
+
 vim.lsp.enable({
 	"clangd",
 	"zls",
 	"pyright",
 	"kotlin_lsp",
+	"rust_analyzer",
+	"org",
 })
 
 function Show_line_diagnostics()
@@ -306,21 +328,21 @@ function Show_line_diagnostics()
 	vim.diagnostic.open_float(nil, opts)
 end
 
-local configs = require("lspconfig.configs")
+-- local configs = require("lspconfig.configs")
 
-if not configs.kotlin_lsp then
-	configs.kotlin_lsp = {
-		default_config = {
-			cmd = { "kotlin-lsp" },
-			filetypes = { "kotlin", "java" },
-			root_markers = {
-				"build.gradle",
-				"build.gradle.kts",
-				"pom.xml",
-				"settings.gradle",
-				".git",
-			},
-			settings = {},
-		},
-	}
-end
+-- if not configs.kotlin_lsp then
+-- 	configs.kotlin_lsp = {
+-- 		default_config = {
+-- 			cmd = { "kotlin-lsp" },
+-- 			filetypes = { "kotlin", "java" },
+-- 			root_markers = {
+-- 				"build.gradle",
+-- 				"build.gradle.kts",
+-- 				"pom.xml",
+-- 				"settings.gradle",
+-- 				".git",
+-- 			},
+-- 			settings = {},
+-- 		},
+-- 	}
+-- end

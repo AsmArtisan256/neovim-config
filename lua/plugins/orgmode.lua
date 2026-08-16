@@ -1,18 +1,55 @@
--- Load custom tree-sitter grammar for org filetype
--- require('orgmode').setup_ts_grammar()
-
--- Tree-sitter configuration
-require'nvim-treesitter.configs'.setup {
-    -- If TS highlights are not enabled at all, or disabled via `disable` prop, highlighting will fallback to default Vim syntax highlighting
-    highlight = {
-        enable = true,
-        -- disable = {'org'}, -- Remove this to use TS highlighter for some of the highlights (Experimental)
-        additional_vim_regex_highlighting = {'org'} -- Required since TS highlighter doesn't support all syntax features (conceal)
-    },
-    ensure_installed = {'org'} -- Or run :TSUpdate org
-}
-
-require('orgmode').setup({
-    -- org_agenda_files = {'~/Dropbox/org/*', '~/my-orgs/**/*'},
-    -- org_default_notes_file = '~/Dropbox/org/refile.org',
+require("orgmode").setup({
+	org_agenda_files = "~/Documents/Org/Inbox.org",
+	org_todo_keywords = {
+		"TODO(t)",
+		"STARTED(s!)",
+		"WAITING(w@/!)",
+		"DELEGATED(g@/!)",
+		"SOMEDAY(y)",
+		"|",
+		"DONE(d@)",
+		"CANCELED(x@)",
+	},
+	org_todo_keyword_faces = {
+		WAITING = ":foreground blue :weight bold",
+		DELEGATED = ":background #FFFFFF :slant italic :underline on",
+		TODO = ":background #000000 :foreground red",
+	},
+	org_startup_folded = "overview",
+	org_hide_leading_stars = true,
+	org_log_done = "note",
+	org_log_repeat = "note",
+	org_log_into_drawer = "LOGBOOK",
+	org_highlight_latex_and_related = "entities",
+	org_startup_indented = true,
+	org_indent_mode_turns_off_org_adapt_indentation = false,
+	org_edit_src_content_indentation = 2,
+	--
+	org_agenda_span = "month",
+	org_agenda_time_grid = {
+		type = { "daily", "today", "require-timed" },
+		times = {
+			700,
+			800,
+			900,
+			1000,
+			1100,
+			1200,
+			1300,
+			1400,
+			1500,
+			1600,
+			1700,
+			1800,
+			1900,
+			2000,
+			2100,
+		},
+		time_separator = "┄┄┄┄┄",
+		time_label = "┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄",
+	},
+	org_agenda_current_time_string = "—·—·—·—·—·—·—·—·— NOW",
+	--
+	win_split_mode = "auto",
+	win_border = "rounded",
 })

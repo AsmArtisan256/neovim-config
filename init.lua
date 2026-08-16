@@ -9,6 +9,7 @@
 vim.pack.add({
 	-- theme
 	"https://github.com/catppuccin/nvim",
+	"https://github.com/neanias/everforest-nvim",
 
 	-- utils
 	"https://github.com/nvim-tree/nvim-web-devicons",
@@ -123,6 +124,9 @@ vim.pack.add({
 	"https://github.com/MagicDuck/grug-far.nvim",
 	-- codediff
 	"https://github.com/esmuellert/codediff.nvim",
+
+	-- org-mode (TODO: testing phase)
+	"https://github.com/nvim-orgmode/orgmode",
 })
 
 -- gotta go fast
@@ -134,9 +138,9 @@ require("initializer")
 if vim.g.neovide then
 	-- vim.o.guifont = "Iosevka_NFM_SemiBold:h16"
 	-- vim.o.guifont = "Iosevka_Comfy:h16"
-	vim.o.guifont = "Iosevka NFM SemiBold:h16"
+	-- vim.o.guifont = "Iosevka NFM SemiBold:h16"
 	vim.o.linespace = 0
-	vim.g.neovide_scale_factor = 1.2
+	vim.g.neovide_scale_factor = 1.0
 
 	vim.g.neovide_padding_top = 2
 	vim.g.neovide_padding_bottom = 2
@@ -166,7 +170,7 @@ if vim.g.neovide then
 	vim.g.neovide_text_gamma = 0.8
 	vim.g.neovide_text_contrast = 0.1
 
-	vim.g.neovide_cursor_vfx_mode = "ripple"
+	-- vim.g.neovide_cursor_vfx_mode = "ripple"
 
 	vim.g.neovide_floating_corner_radius = 0.25
 
