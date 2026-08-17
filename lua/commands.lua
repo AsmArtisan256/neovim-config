@@ -74,10 +74,31 @@ vim.api.nvim_create_autocmd("FileType", {
 	command = "nnoremap <buffer> <CR> <CR>:cclose<CR>",
 })
 
+-- NOTE: ok, this is totally insane and crazy
+-- I don't know if it is related to this or not
+-- but I gotta find out why this works
+local function should_save_view(buf)
+	if not vim.api.nvim_buf_is_valid(buf) then
+		return false
+	end
+	if vim.bo[buf].buftype ~= "" then
+		return false
+	end
+	local ft = vim.bo[buf].filetype
+	if ft == "" or ft:match("^Neogit") or ft:match("^diffview") or ft == "qf" or ft == "help" then
+		return false
+	end
+	local name = vim.api.nvim_buf_get_name(buf)
+	if name == "" or not vim.uv.fs_stat(name) then
+		return false
+	end
+	return not U.is_buf_huge(buf)
+end
+
 -- save folds
 vim.api.nvim_create_autocmd({ "BufWinLeave", "BufWritePost" }, {
 	callback = function(ev)
-		if not U.is_buf_huge(ev.buf) then
+		if should_save_view(ev.buf) then
 			vim.cmd([[silent! mkview]])
 		end
 	end,
@@ -86,7 +107,7 @@ vim.api.nvim_create_autocmd({ "BufWinLeave", "BufWritePost" }, {
 -- load folds
 vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
 	callback = function(ev)
-		if not U.is_buf_huge(ev.buf) then
+		if should_save_view(ev.buf) then
 			vim.cmd([[silent! loadview]])
 		end
 	end,
