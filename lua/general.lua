@@ -69,7 +69,7 @@ vim.opt.backspace = "indent,eol,start"
 -- persistent undo
 vim.opt.undofile = true
 -- undo temporary directory
-vim.opt.undodir = "/tmp"
+vim.opt.undodir = vim.fn.stdpath("state") .. "/undo"
 -- views
 vim.opt.viewdir = config .. "/view"
 vim.opt.viewoptions = "cursor,folds"
@@ -104,7 +104,7 @@ vim.opt.visualbell = false
 vim.opt.cursorline = true
 vim.opt.cursorcolumn = false
 vim.opt.scrolljump = 5
-vim.opt.lazyredraw = true
+vim.opt.lazyredraw = false
 vim.opt.redrawtime = 10000
 vim.opt.synmaxcol = 180
 vim.opt.sidescroll = 0

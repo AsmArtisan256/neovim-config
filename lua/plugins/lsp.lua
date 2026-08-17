@@ -86,7 +86,7 @@ local on_attach = function(client, bufnr)
 	vim.api.nvim_set_keymap("n", "<leader>cd", "<cmd>lua require('fzf-lua').lsp_definitions()<CR>", opts)
 	-- jump to implementation
 	-- vim.api.nvim_set_keymap("n", "<leader>ci", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
-	vim.api.nvim_set_keymap("n", "<leader>ci", "<cmd>lua require('fzf-lua').lsp_implementations()()<CR>", opts)
+	vim.api.nvim_set_keymap("n", "<leader>ci", "<cmd>lua require('fzf-lua').lsp_implementations()<CR>", opts)
 	-- jump to type definition
 	-- vim.api.nvim_set_keymap("n", "<leader>cy", "<cmd>lua vim.lsp.buf.type_definition()<CR>", opts)
 	vim.api.nvim_set_keymap("n", "<leader>cy", "<cmd>lua require('fzf-lua').lsp_typedefs()<CR>", opts)
