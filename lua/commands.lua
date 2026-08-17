@@ -148,8 +148,5 @@ vim.api.nvim_create_autocmd("FileType", {
 		end
 
 		pcall(vim.treesitter.start, bufnr)
-
-		vim.wo.foldmethod = "expr"
-		vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 	end,
 })

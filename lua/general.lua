@@ -190,13 +190,9 @@ vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,
 -- load project local nvim configs
 vim.opt.exrc = true
 
--- fold settings - requires treesitter!
--- NOTE: this fucks up performance BADLY when opening big files
--- vim.opt.foldmethod = "expr"
--- vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
--- vim.opt.foldlevelstart = 99
--- vim.opt.foldnestmax = 10
--- vim.foldenable = false
+-- fold settings
+vim.opt.foldmethod = "manual"
+vim.opt.foldenable = true
 
 -- disable some builtin stuff
 local disabled_built_ins = {
