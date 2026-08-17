@@ -40,7 +40,7 @@ end
 
 LuaLine.setup({
 	options = {
-		theme = "tomorrow_night",
+		theme = "everforest",
 		always_divide_middle = true,
 		icons_enabled = true,
 		disabled_filetypes = { "NvimTree" },
