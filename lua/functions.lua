@@ -13,38 +13,25 @@ function Tdump(o)
 	end
 end
 
-vim.api.nvim_exec(
-	[[
+-- show docs on things with <S-k>
+function Show_documentation()
+	if vim.tbl_contains({ "vim", "help" }, vim.bo.filetype) then
+		vim.cmd.help(vim.fn.expand("<cword>"))
+	else
+		vim.lsp.buf.hover()
+	end
+end
 
-" show docs on things with <S-k>
-function! Show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  else
-    lua vim.lsp.buf.hover()
-  endif
-endfunction
-
-" scratch function
+-- scratch function
 function CreateScratchBuffer(vertical)
-    if a:vertical == 1
-        :vnew
-    else
-        :new
-    endif
-    :setlocal buftype=nofile
-    :setlocal bufhidden=hide
-    :setlocal noswapfile
-    :set ft=scratch
-endfunction
+	vim.cmd(vertical and "vnew" or "new")
+	vim.bo.buftype = "nofile"
+	vim.bo.bufhidden = "hide"
+	vim.bo.swapfile = false
+	vim.bo.filetype = "scratch"
+end
 
-" function to insert time stamp
-function! InsertDateStamp()
-    let l:date = system('date +\%F')
-    let l:oneline_date = split(date, "\n")[0]
-    execute "normal! a" . oneline_date . "\<Esc>"
-endfunction
-
-]],
-	false
-)
+-- function to insert time stamp
+function InsertDateStamp()
+	vim.api.nvim_put({ os.date("%Y-%m-%d") }, "c", true, true)
+end

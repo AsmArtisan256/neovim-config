@@ -32,9 +32,6 @@ vim.api.nvim_set_keymap("n", "<C-j>", "<C-w>j", { noremap = true })
 vim.api.nvim_set_keymap("n", "<C-k>", "<C-w>k", { noremap = true })
 vim.api.nvim_set_keymap("n", "<C-l>", "<C-w>l", { noremap = true })
 
--- disable hl with 2 escapes
-vim.api.nvim_set_keymap("", "<esc>", "<esc>:noh<CR><esc>", { noremap = true, silent = true })
-
 -- trim white spaces with F2
 vim.api.nvim_set_keymap("n", "<F2>", ":let _s=@/<Bar>:%s/\\s\\+$//e<Bar>:let @/=_s<Bar><CR>", { noremap = true })
 
@@ -63,7 +60,6 @@ vim.api.nvim_set_keymap("n", "<leader>d3", ":diffget REMOTE<CR>", {})
 local opts = { noremap = true, silent = true }
 
 vim.keymap.set("n", "<C-u>", "<C-u>zz", opts)
-vim.keymap.set("n", "<C-d>", "<C-d>zz", opts)
 vim.keymap.set("n", "{", "{zz", opts)
 vim.keymap.set("n", "}", "}zz", opts)
 vim.keymap.set("n", "N", "Nzz", opts)
@@ -77,11 +73,14 @@ vim.keymap.set("n", "<C-i>", "<C-i>zz", opts)
 vim.keymap.set("n", "<C-o>", "<C-o>zz", opts)
 
 -- duplicate line
-vim.keymap.set({ "n", "i" }, "<C-d>", "yyp", { desc = "Duplicate current line below" })
+vim.keymap.set("n", "<C-d>", "yyp", { desc = "Duplicate current line below" })
+vim.keymap.set("i", "<C-d>", "<Cmd>normal! yyp<CR>", { desc = "Duplicate current line below" })
 
 -- https://www.reddit.com/r/neovim/comments/v7s1ts/how_do_i_avoid_replacing_the_content_of_my/
 -- Don't touch unnamed register when pasting over visual selection
-vim.api.nvim_exec([[xnoremap <expr> p 'pgv"' . v:register . 'y']], false)
+vim.keymap.set("x", "p", function()
+	return 'pgv"' .. vim.v.register .. "y"
+end, { expr = true })
 
 -- undotree
 vim.cmd("packadd nvim.undotree")

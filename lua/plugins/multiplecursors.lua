@@ -29,7 +29,7 @@ vim.keymap.set("n", "<esc>", function()
 	elseif mc.hasCursors() then
 		mc.clearCursors()
 	else
-		-- Default <esc> handler.
+		vim.cmd.nohlsearch()
 	end
 end)
 

@@ -10,7 +10,7 @@ vim.api.nvim_create_augroup("YankHighlight", { clear = true })
 vim.api.nvim_create_autocmd("TextYankPost", {
 	group = "YankHighlight",
 	callback = function()
-		vim.highlight.on_yank({ higroup = "TermCursor", timeout = "400" })
+		vim.hl.on_yank({ higroup = "TermCursor", timeout = 400 })
 	end,
 })
 
@@ -53,19 +53,26 @@ vim.api.nvim_create_autocmd({ "VimResized" }, {
 -- nasm
 vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
 	pattern = { "*.S", "*.s", "*.asm", "*.inc" },
-	command = "set filetype=asm syntax=nasm commentstring=;\\%s",
+	command = "setlocal filetype=asm syntax=nasm commentstring=;\\%s",
 })
 
 -- remove trailing whitespaces
 vim.api.nvim_create_autocmd("BufWritePre", {
 	pattern = "*",
-	command = ":%s/\\s\\+$//e",
+	callback = function()
+		if vim.bo.buftype ~= "" or not vim.bo.modifiable then
+			return
+		end
+		local view = vim.fn.winsaveview()
+		vim.cmd([[keeppatterns %s/\s\+$//e]])
+		vim.fn.winrestview(view)
+	end,
 })
 
 -- do not autocoment on newlines
 vim.api.nvim_create_autocmd("BufEnter", {
 	pattern = "*",
-	command = "set fo-=c fo-=r fo-=o",
+	command = "setlocal fo-=c fo-=r fo-=o",
 })
 
 -- exit quickfix window on enter keypress
@@ -118,15 +125,15 @@ vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
 --
 
 vim.api.nvim_create_user_command("Scratch", function()
-	vim.cmd("call CreateScratchBuffer(1)")
+	CreateScratchBuffer(true)
 end, {})
 
 vim.api.nvim_create_user_command("Scratchh", function()
-	vim.cmd("call CreateScratchBuffer(0)")
+	CreateScratchBuffer(false)
 end, {})
 
 vim.api.nvim_create_user_command("TimeStamp", function()
-	vim.cmd("call InsertDateStamp()")
+	InsertDateStamp()
 end, {})
 
 -- LSP
@@ -159,11 +166,6 @@ vim.api.nvim_create_autocmd("FileType", {
 		local disable_ts = ok and stats and stats.size > max_filesize
 
 		if disable_ts then
-			local has_ua, ua = pcall(require, "ultimate-autopair")
-			if has_ua then
-				ua.disable()
-			end
-
 			vim.bo[bufnr].syntax = "on"
 			return
 		end

@@ -33,6 +33,5 @@ WhichKey.setup({
 	show_help = true, -- show help message on the command line when the popup is visible
 	triggers = {
 		{ "<auto>", mode = "nixsotc" },
-		{ "a", mode = { "n", "v" } },
 	},
 })

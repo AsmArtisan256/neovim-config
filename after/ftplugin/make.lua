@@ -1,3 +1,3 @@
 -- use tabs instead of spaces
-vim.opt.tabstop = 8
-vim.opt.expandtab = false
+vim.opt_local.tabstop = 8
+vim.opt_local.expandtab = false

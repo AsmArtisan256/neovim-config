@@ -8,7 +8,7 @@
 
 vim.pack.add({
 	-- theme
-	"https://github.com/catppuccin/nvim",
+	-- "https://github.com/catppuccin/nvim",
 	"https://github.com/neanias/everforest-nvim",
 
 	-- utils
@@ -17,9 +17,6 @@ vim.pack.add({
 
 	-- vim lualine
 	"https://github.com/nvim-lualine/lualine.nvim",
-
-	-- better comments
-	"https://github.com/terrortylor/nvim-comment",
 
 	-- git support
 	"https://github.com/tpope/vim-fugitive",
@@ -30,7 +27,6 @@ vim.pack.add({
 	-- git nice stuff
 	"https://github.com/NeogitOrg/neogit",
 	"https://github.com/lewis6991/gitsigns.nvim",
-	"https://github.com/justinmk/guh.nvim",
 
 	-- speed motion
 	-- "https://github.com/phaazon/hop.nvim",
@@ -58,9 +54,6 @@ vim.pack.add({
 
 	-- neovim lspconfig
 	"https://github.com/neovim/nvim-lspconfig",
-
-	-- lsp signature
-	"https://github.com/ray-x/lsp_signature.nvim",
 
 	-- nvim-cmp
 	-- "https://github.com/hrsh7th/cmp-nvim-lsp",
@@ -97,9 +90,6 @@ vim.pack.add({
 
 	-- distraction free editing
 	"https://github.com/folke/zen-mode.nvim",
-
-	-- EditorConfig
-	"https://github.com/gpanders/editorconfig.nvim",
 
 	-- vim surround
 	"https://github.com/kylechui/nvim-surround",
